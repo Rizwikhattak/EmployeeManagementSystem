@@ -1,0 +1,77 @@
+/* .leave-management {
+    padding: 20px;
+  }
+  
+  .leave-management .modal-header, .leave-management .modal-body, .leave-management .modal-footer {
+    background-color: #f8f9fa;
+  }
+  
+  .leave-management .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .leave-management .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  .leave-balance-chart {
+    text-align: center;
+  }
+  
+  .leave-balance-chart h5 {
+    margin: 10px 0;
+  }
+   */
+
+.leave-management {
+  padding: 20px;
+  padding-top: 80px;
+
+  color: white; /* Text color to ensure readability */
+  min-height: 94vh; /* Ensures the background covers the full height */
+  position: relative; /* For overlay positioning */
+  overflow: hidden; /* Ensures no overflow from the background */
+}
+
+/* Overlay to make text more readable */
+.leave-management::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white; /* Dark overlay */
+  z-index: -1; /* Ensure overlay is behind content */
+}
+
+/* Adjust button styles to match the background */
+.leave-management .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.leave-management .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.leave-management .btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.leave-management .btn-info:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.leave-balance-chart {
+  text-align: center;
+}
+
+.leave-balance-chart h5 {
+  margin: 10px 0;
+}

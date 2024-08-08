@@ -1,0 +1,49 @@
+.work {
+  font-family: Arial, sans-serif;
+
+  padding: 80px;
+
+  border-radius: 10px;
+}
+
+.work h1,
+.work h2,
+.work h3 {
+  color: #003135;
+}
+
+.work .project-dropdown,
+.employee-dropdown,
+.module-list,
+.progress-graph {
+  margin-bottom: 20px;
+}
+
+.work select,
+input {
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid #024950;
+  border-radius: 5px;
+  outline: none;
+  color: #003135;
+}
+
+.work input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.work .percentage-input {
+  width: 60px;
+  margin-left: 10px;
+}
+
+.work .module-item {
+  display: flex;
+  align-items: center;
+}
+
+.work canvas {
+  max-width: 100%;
+  height: auto;
+}

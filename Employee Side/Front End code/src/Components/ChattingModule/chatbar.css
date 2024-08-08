@@ -1,0 +1,80 @@
+/* Chat App Styles */
+.chat-app {
+  background: #003135; /* Dark background for the entire app */
+  color: #ffffff; /* Ensure text is readable on dark background */
+}
+
+.bg-gradient {
+  background: linear-gradient(to right, #003135, #0056b3); /* Gradient header background */
+}
+
+.chat-header {
+  background: linear-gradient(to right, #003135, #0056b3); /* Gradient header background */
+}
+
+.chat-container {
+  background: #003135; /* Dark background for chat messages */
+  border-radius: 12px; /* Rounded corners for a modern look */
+  padding: 10px;
+  color: #ffffff; /* Ensure text is readable */
+}
+
+/* Chat Bar Popup */
+.chat-bar-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-bar-popup.show {
+  display: flex;
+}
+
+.chat-bar-popup input {
+  flex: 1;
+}
+
+.chat-bar-popup button {
+  flex-shrink: 0;
+}
+
+/* Button Styles */
+button.rounded-pill {
+  border-radius: 50px;
+}
+
+/* List Group Items */
+.list-group-item {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+  background-color: #004a53; /* Slightly lighter shade for hover effect */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #003135; /* Dark background for the navbar */
+  border-bottom: 2px solid #0056b3; /* Optional: Add a border for separation */
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: #ffffff; /* White text for contrast */
+}
+
+.navbar-brand:hover, .navbar-nav .nav-link:hover {
+  color: #00d2ff; /* Change text color on hover for better visibility */
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30"%3E%3Cpath stroke="currentColor" stroke-width="2" d="M5 7h20M5 15h20M5 23h20" /%3E%3C/svg%3E'); /* Customize icon color if needed */
+}
