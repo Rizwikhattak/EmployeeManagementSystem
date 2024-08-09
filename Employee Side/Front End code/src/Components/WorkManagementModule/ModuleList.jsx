@@ -1,38 +1,51 @@
-import React from 'react';
+import React, { useState } from "react";
 
-const ModuleList = ({ modules, onModuleUpdate }) => {
+const ModuleList = ({ module, onModuleUpdate, handleProgressUpdate }) => {
+  const [percentage, setPercentage] = useState(0);
   const handleCheckboxChange = (index) => {
-    const updatedModule = { ...modules[index], completed: !modules[index].completed };
+    const updatedModule = {
+      ...module[index],
+      completed: !module[index].completed,
+    };
     onModuleUpdate(index, updatedModule);
   };
 
   const handlePercentageChange = (index, event) => {
-    const updatedModule = { ...modules[index], percentage: parseInt(event.target.value) || 0 };
+    setPercentage(event.target.value);
+    const updatedModule = {
+      ...module,
+      progress_percentage: parseInt(event.target.value) || 0,
+    };
     onModuleUpdate(index, updatedModule);
   };
 
   return (
     <div className="module-list">
-      <h3>Module List</h3>
-      {modules.map((module, index) => (
-        <div key={index} className="module-item">
-          <input
-            type="checkbox"
-            checked={module.completed}
-            onChange={() => handleCheckboxChange(index)}
-          />
-          <label>{module.name}</label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={module.percentage}
-            onChange={(event) => handlePercentageChange(index, event)}
-            className="percentage-input"
-          />
-          <span>% Completion</span>
-        </div>
-      ))}
+      <div className="module-item">
+        {/* <input
+          type="checkbox"
+          checked={module.completed}
+          onChange={() => handleCheckboxChange(index)}
+        /> */}
+        <label>{module.title}</label>
+        <input
+          type="number"
+          min="0"
+          max="100"
+          value={module.progress_percentage}
+          onChange={(event) => handlePercentageChange(module.id, event)}
+          className="percentage-input"
+        />
+        <span className="px-2">% Completion</span>
+        <span>
+          <button
+            className="btn btn-primary"
+            onClick={() => handleProgressUpdate(percentage)}
+          >
+            Update
+          </button>
+        </span>
+      </div>
     </div>
   );
 };

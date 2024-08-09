@@ -1,27 +1,22 @@
-import React, { useEffect, useRef } from 'react';
-import { Chart } from 'chart.js/auto';
+import React, { useEffect, useRef } from "react";
+import { Chart } from "chart.js/auto";
 
-const ProgressGraph = ({ modules }) => {
+const ProgressGraph = ({ module }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    const ctx = chartRef.current.getContext('2d');
+    const ctx = chartRef.current.getContext("2d");
 
-    const completedModules = modules.filter((module) => module.completed).length;
-    const remainingModules = modules.length - completedModules;
-
-    const progressPercentages = modules.map((module) => module.percentage);
-    const averageCompletion =
-      progressPercentages.reduce((a, b) => a + b, 0) / modules.length;
+    const progressPercentage = module.progress_percentage;
 
     const chart = new Chart(ctx, {
-      type: 'doughnut',
+      type: "doughnut",
       data: {
-        labels: ['Completed', 'Remaining'],
+        labels: ["Completed", "Remaining"],
         datasets: [
           {
-            data: [completedModules, remainingModules],
-            backgroundColor: ['#0FA4AF', '#964734'],
+            data: [progressPercentage, 100 - progressPercentage],
+            backgroundColor: ["#0FA4AF", "#964734"],
           },
         ],
       },
@@ -29,11 +24,11 @@ const ProgressGraph = ({ modules }) => {
         responsive: true,
         plugins: {
           legend: {
-            position: 'top',
+            position: "top",
           },
           title: {
             display: true,
-            text: `Overall Progress: ${averageCompletion.toFixed(2)}%`,
+            text: `${module.title} Progress: ${progressPercentage.toFixed(2)}%`,
           },
         },
       },
@@ -42,11 +37,11 @@ const ProgressGraph = ({ modules }) => {
     return () => {
       chart.destroy();
     };
-  }, [modules]);
+  }, [module]);
 
   return (
     <div className="progress-graph">
-      <h3>Progress Graph</h3>
+      <h3>{module.title} Progress Graph</h3>
       <canvas ref={chartRef}></canvas>
     </div>
   );

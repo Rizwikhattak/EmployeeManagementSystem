@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from "react";
 
-const ProjectDropdown = ({ onSelect }) => {
-  const projects = ['Project A', 'Project B', 'Project C'];
-
+const ProjectDropdown = ({ onSelect, projects }) => {
   const handleChange = (event) => {
     onSelect(event.target.value);
   };
@@ -13,8 +11,8 @@ const ProjectDropdown = ({ onSelect }) => {
       <select id="project-dropdown" onChange={handleChange}>
         <option value="">--Select a project--</option>
         {projects.map((project, index) => (
-          <option key={index} value={project}>
-            {project}
+          <option key={index} value={project.project_name}>
+            {project.project_name}
           </option>
         ))}
       </select>
